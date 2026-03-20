@@ -1,0 +1,18 @@
+[Unit]
+Description=AISM API Server
+After=network.target
+
+[Service]
+Type=simple
+User=admxn
+WorkingDirectory=/home/admxn/aism
+Environment=NODE_ENV=production
+Environment=API_PORT=3001
+ExecStart=/usr/bin/node api/server.js
+Restart=always
+RestartSec=5
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target

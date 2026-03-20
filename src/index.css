@@ -1,0 +1,74 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-white text-dark-900 antialiased;
+}
+
+@layer utilities {
+  .gradient-brand {
+    background: linear-gradient(135deg, #0c93e7 0%, #015da0 100%);
+  }
+  .gradient-dark {
+    background: linear-gradient(135deg, #1a1b1e 0%, #072a49 100%);
+  }
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, #0c93e7 0%, #015da0 100%);
+  }
+}
+
+/* Score ring animation */
+@keyframes score-fill {
+  from { stroke-dasharray: 0 327; }
+}
+.score-ring-animated {
+  animation: score-fill 1.2s ease-out forwards;
+}
+
+/* Scan progress bar */
+@keyframes scan-progress {
+  0% { width: 0%; }
+  15% { width: 15%; }
+  40% { width: 40%; }
+  65% { width: 62%; }
+  80% { width: 78%; }
+  95% { width: 92%; }
+  100% { width: 100%; }
+}
+.scan-progress-bar {
+  animation: scan-progress 8s ease-out forwards;
+}
+
+/* Fade in up */
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in-up {
+  animation: fade-in-up 0.5s ease-out forwards;
+}
+.animate-delay-100 { animation-delay: 0.1s; opacity: 0; }
+.animate-delay-200 { animation-delay: 0.2s; opacity: 0; }
+.animate-delay-300 { animation-delay: 0.3s; opacity: 0; }
+.animate-delay-400 { animation-delay: 0.4s; opacity: 0; }
+
+/* Pulse dot */
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+.animate-pulse-dot {
+  animation: pulse-dot 1.5s ease-in-out infinite;
+}
+
+/* Count up number shimmer */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}

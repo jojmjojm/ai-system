@@ -1,0 +1,20 @@
+# Add this block to /etc/caddy/Caddyfile
+# AISM reverse proxy — port 8081
+
+:8081 {
+    # API endpoints → Node.js
+    handle /api/* {
+        reverse_proxy localhost:3001
+    }
+
+    # Static frontend
+    handle {
+        root * /home/admxn/aism/dist
+        try_files {path} /index.html
+        file_server
+    }
+
+    log {
+        output file /var/log/caddy/aism.log
+    }
+}
