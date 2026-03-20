@@ -8,7 +8,7 @@ const { spawn } = require('child_process')
 require('dotenv').config({ path: path.resolve(__dirname, '../.env') })
 
 const app = express()
-const PORT = process.env.API_PORT || 3001
+const PORT = process.env.PORT || process.env.API_PORT || 3001
 const DATA_DIR = path.resolve(__dirname, '../data')
 const LEADS_FILE = path.join(DATA_DIR, 'leads.json')
 const SCANS_FILE = path.join(DATA_DIR, 'scans.json')
